@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "zRAilR0D8Ys=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\offic\\source\\repos\\QUESTPDF_PRACTICE\\QUESTPDF_PRACTICE\\QUESTPDF_PRACTICE.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\offic\\.nuget\\packages\\questpdf\\2025.1.7\\questpdf.2025.1.7.nupkg.sha512"
+  ],
+  "logs": []
+}
