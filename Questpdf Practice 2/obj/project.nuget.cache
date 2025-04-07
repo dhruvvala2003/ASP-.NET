@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "lBPzApM+m0s=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\offic\\Desktop\\ConsoleApp1 (1)\\questpdf practice 2 letest\\ConsoleApp1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\offic\\.nuget\\packages\\questpdf\\2025.1.6\\questpdf.2025.1.6.nupkg.sha512"
+  ],
+  "logs": []
+}
