@@ -1,0 +1,35 @@
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.tab{
+    border: 2px solid  black    ;
+}
+
+
+.HeadContainer{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.Item{
+    background-color: red;
+    width: 100%;
+    padding: 10px;
+}
+
+.Item.active{
+    background-color: aqua;
+}
+
+.ContentContainer{
+    background-color: aquamarine;
+}
+
+.ContentItem{
+    width: 100%;
+    padding:10px;
+    background-color: antiquewhite;
+}
