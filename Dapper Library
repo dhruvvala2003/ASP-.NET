@@ -1,0 +1,53 @@
+Dapper library:
+
+reference:https://www.learndapper.com/
+
+commonly use methords:
+1. QueryAsync : Return a list of items. Use when we Expect Multiple Rows as the result.
+2. QueryFirstOrDefaultAsync : Returns the first record or NULL if none found. Use When we want only the first match and okay with null if nothing is found.
+3. QuerySingleAsync : Returns Exactly one Records, throws exception if multiple or none found.Expect EXACTLY one row.
+4. QuerySingleOrDefaultAsync : Returns one record or NULL, throws exception if multiple found.Expect zero or one row,never more.
+5. ExecuteAsync : Execute a Command like INSERT,UPDATE or DELETE. Returns affected row count.
+6. ExecuteScalarAsync : Executes a Query and returns a single scalar value(like COUNT,SUM,MAx etc.).
+7. QueryMultipleAsync : Runs one SQL Query with multiple Resultset and lets you read each separately.
+
+
+
+What is Dapper? 
+Dapper is an open-source object-relational mapping (ORM) library for .NET and .NET Core applications. The library allows developers quickly and easily access data from databases without the need to write tedious code. Dapper allows you to execute raw SQL queries, map the results to objects, and execute stored procedures, among other things. It is available as a NuGet package.
+
+Dapper is lightweight and fast, making it an ideal choice for applications that require low latency and high performance.
+It is a simple yet powerful object mapping tool for any .NET language, such as C#, that enables developers to quickly and easily map query results from ADO.NET data readers to instances of business objects.
+It has excellent support for both asynchronous and synchronous database queries and batching multiple queries together into a single call.
+Additionally, dapper supports parameterized queries to help protect against SQL injection attacks.
+
+What does Dapper do?
+
+ar sql = "SELECT * FROM products";
+var products = new List<Product>();
+using (var connection = new SqlConnection(connString))
+{
+    connection.Open();
+    using (var command = new SqlCommand(sql, connection))
+    {
+        using (var reader = command.ExecuteReader())
+        {
+            var product = new Product
+            {
+                ProductID = reader.GetInt32(reader.GetOrdinal("ProductID")),
+                ProductName = reader.GetString(reader.GetOrdinal("ProductName")),
+                SupplierID = reader.GetInt32(reader.GetOrdinal("SupplierID")),
+                CategoryID = reader.GetInt32(reader.GetOrdinal("CategoryID")),
+                UnitPrice = reader.GetDecimal(reader.GetOrdinal("UnitPrice")),
+                UnitsInStock = reader.GetInt32(reader.GetOrdinal("UnitsInStock")),
+                UnitsOnOrder = reader.GetInt32(reader.GetOrdinal("UnitsOnOrder")),
+                Discontinued = reader.GetBoolean(reader.GetOrdinal("Discontinued")),
+                DiscontinuedDate = reader.GetDateTime(reader.GetOrdinal("DiscontinuedDate"))
+            };
+            products.Add(product);
+        }
+    }
+}
+
+->At its most basic level, Dapper replaces the highlighted block of assignment code in the example above with the following:
+products = connection.Query<Product>(sql).ToList();
